@@ -6,7 +6,7 @@ Our primary objective of the project was to create a machine learning model that
 
 First, we attempted to use a library called XGBoost. Early on we ran into challenges when trying to complete the xgb.XGBRegressor() command. However, after some additional research we were able to move past that error and copmlete the model and fit component of the process. Once that was completed, we applied the details we had to calculate the mean squared error, the root mean squared error, and the r-squared. Although we did not move beyond these calculations for XGBoost, it did provide a good comparison for our alternative model, the Kernel Ridge Regression.
 
-The Kernel Ridge Regression model we applied worked a bit better than XGBoost, and we were able to complete both the RMSE calculation as well as develop predicted prices for Bitcoin out into the future.<br>
+The Kernel Ridge Regression model we applied worked a bit better than XGBoost, and we were able to complete both the RMSE calculation as well as develop predicted Bitcoin prices.<br>
 
 ## Data Gathering
 
@@ -22,14 +22,22 @@ Initially, we had some challenge reading in the date details with yfinance, but 
 ### Kernel Ridge Regression 
 The Kernel Ridge Reression has the ability to use different kernel types. In our case, we used a linear kernel and an alpha of 5,000. <br>
 
-To split our train and test data we used a structured training period. This allowed us to used an index '+' approach for the offset and, in our case, we used a six months.<br>
-
 ### XGBoost
 We did not complete the XGBoost completely. We ran the model, fit and predicted values. The challenging part with this library is the number of parameters that need to be tuned. In some cases we weren't very clear on what a given parameter was actually tweaking.
 
 ## Developing and Running the Models
 ### Kernel Ridge Regression
-[This is where Kernel Ridge details will go] <br>
+To setup the Kernel Ridge Regression model we need to properly define the training and testing parameters. We first used the standard test_size indicator as a precentage, but that created challenges later on attributing the predicted values back to the corresponding date. Instead, we specifically defined the time period and the offset we wanted to use to end the training period. This proved far more useful.<br>
+
+After applying the model, fit, predict structure we were given a an array and that array is what was then used to compare predictions against actual. The initial process using Kernel Ridge was relatively straightforward in comparison to XGBoost.<br>
+
+    Train MAE: 134.66
+    Train RMSE: 187.08
+    Train R2: .99
+
+    Test MAE: 818.07
+    Test RMSE: 1135.80
+    Test R2: 1.00
 
 ### XGBoost 
 Prior to running the library, we confirmed that the imported data did not include any null values. Not surprisingly given the data source, no null values were imported. Then, we dropped both the Open and Volume features from the dataset, leaving us with just the Date and Close price. <br>
