@@ -7,7 +7,7 @@ Our primary objective of the project was to create a machine learning model that
 ![bitcoin_timeseries](Images/timeseries_performance.png)
     (Historical price)
 
-First, we imported a number of different libraries and attempted to use XGBoost. Early on we ran into challenges when trying to complete the xgb.XGBRegressor() command. However, after some additional research we were able to move past that error and copmlete the model and fit component of the process. Once that was completed, we applied the details we had to calculate the mean squared error, the root mean squared error, and the r-squared. Although we did not move beyond these calculations for XGBoost, it did provide a good comparison for our alternative model, the Kernel Ridge Regression.<br>
+First, we imported a number of different libraries and attempted to use XGBoost. Early on we ran into challenges when trying to complete the xgb.XGBRegressor() command. However, after some additional research we were able to move past that error and complete the model and fit component of the process. Once that was completed, we applied the details we had to calculate the mean squared error, the root mean squared error, and the r-squared. Although we did not move beyond these calculations for XGBoost, it did provide a good comparison for our alternative model, the Kernel Ridge Regression.<br>
 
 ![libraries](Images/libraries.png)
 
